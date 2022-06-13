@@ -1,0 +1,92 @@
+﻿@model List<OnlineStore.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="/Assets/client/js/controller/cartController.js"></script>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/Cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("UpdateItem", "Cart", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="product well">
+                    <div class="col-md-3">
+                        <div class="image">
+                            <img src="@item.Product.HinhAnh" alt="@item.Product.TenSach" />
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="caption">
+                            <div class="name"><h3><a href="/Product/Detail/@item.Product.MaSach">@item.Product.TenSach</a></h3></div>
+                            <div class="info">
+                                <ul>
+                                    <li>Mã sách: <input name="productId" readonly="readonly" value="@item.Product.MaSach" /></li>
+                                    <li>Mã loại sách: @item.Product.MaLoaiSach</li>
+                                </ul>
+                            </div>
+                            <div class="price">Đơn giá: @item.Product.DonGia.GetValueOrDefault(0)<span>$98</span></div>
+                            <label>Số lượng: </label><input class="txtQuantity" type="text" data-id="@item.Product.MaSach" name="quantity" value="@item.Quantity">
+
+                            <div class="price">Thành tiền: @(item.Quantity*@item.Product.DonGia)</div>
+                            <hr>
+                            <a href="/Cart/DeleteItem/@item.Product.MaSach?productId=@item.Product.MaSach" class="btn btn-2 pull-right">REMOVE</a>
+
+                            <button type="submit" class="btn btn-2 ">Update</button>
+                            @*<a href="#" data-id="@item.Product.MaSach" class="btn-delete">Xóa</a>*@
+                            @*<a href="/Cart/UpdateItem/" class="btn btn-2 ">Update</a>*@
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            
+        }
+    }
+    <div class="row">
+        <div class="col-md-4 col-md-offset-8 ">
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng </button>
+            <button id="btnUpdate" class="btn"> Cập nhật giỏ hàng </button>
+            <button id="btnDeleteAll" class="btn"> Xóa hết giỏ hảng </button>
+            @*<center><a href="/" class="btn btn-1">Continue To Shopping</a></center>*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="pricedetails">
+            <div class="col-md-4 col-md-offset-8">
+                <table>
+                    <h6>Price Details</h6>
+                    <tr>
+                        <td>Total</td>
+                        <td>350.00</td>
+                    </tr>
+                    <tr>
+                        <td>Discount</td>
+                        <td>-----</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery Charges</td>
+                        <td>100.00</td>
+                    </tr>
+                    <tr style="border-top: 1px solid #333">
+                        <td><h5>TOTAL</h5></td>
+                        <td>400.00</td>
+                    </tr>
+                </table>
+                <center><a href="/Cart/Payment/" class="btn btn-1">Checkout</a></center>
+            </div>
+        </div>
+    </div>
+</div>
+

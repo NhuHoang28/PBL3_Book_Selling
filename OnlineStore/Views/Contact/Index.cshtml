@@ -1,0 +1,32 @@
+﻿@model Model.EF.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="section group">
+        @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+        {
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Người gửi</label>
+                <input name="shipName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Mã người dùng</label>
+                @*@Html.TextBoxFor(model => model.IdUser, new { @readonly = "readonly", htmlAttributes = new { @class = "form-control" } })*@
+                <input name="id" class="form-control />
+            </div>
+            <div class="form-group">
+                <label>Nội dung</label>
+                <input name="content" class="form-control" />
+            </div>
+            @*<div class="form-group">
+                <label>Trạng thái</label>
+                <input name="status" class="form-control" />
+            </div>*@
+            <button type="submit" class="btn">Gửi đóng góp</button>
+        </div>
+        }
+    </div>
+</div>

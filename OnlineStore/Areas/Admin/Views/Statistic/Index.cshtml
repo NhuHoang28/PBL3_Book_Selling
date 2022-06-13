@@ -1,0 +1,29 @@
+﻿@model OnlineStore.Models.Statistic
+@{
+    ViewBag.Title = "Thống kê";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header
+{
+    Thống kê
+}
+@using (Html.BeginForm("Sum", "Statistic", FormMethod.Post))
+{
+<form>
+    <label for="firstdate">Ngày bắt đầu:</label>
+    <input type="date" name="firstdate" value="@Model.firstdate.ToString("MM/dd/yyyy")">
+    <label for="lastdate">Ngày kết thúc:</label>
+    <input type="date" name="lastdate" value="@Model.lastdate.ToString("MM/dd/yyyy")">
+    <button type="submit" class="btn btn-2 ">Thống kê</button>
+    <div><label>Doanh thu:</label></div>
+    @*@Html.TextBox("statistic", value = sum)*@
+    <input name="statistic" readonly="readonly" value="@Model.sum" />
+    <div><label>Lượng người mua:</label></div>
+    @*@Html.TextBox("statistic", value = sum)*@
+    <input name="quantity" readonly="readonly" value="@Model.quantity" />
+    @*<input type="submit">*@
+</form>
+}
+
+

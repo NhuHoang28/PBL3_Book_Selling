@@ -1,0 +1,16 @@
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\Model.dll.config
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\Model.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\Model.pdb
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\EntityFramework.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\EntityFramework.xml
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\source\repos\OnlineStore\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\OnlineStore\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\LENOVO\source\repos\OnlineStore\Model\obj\Debug\Model.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\obj\Debug\Model.pdb
+C:\Users\LENOVO\source\repos\OnlineStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\PagedList.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\PagedList.xml
+C:\Users\LENOVO\source\repos\OnlineStore\Model\bin\Debug\PagedList.Mvc.xml

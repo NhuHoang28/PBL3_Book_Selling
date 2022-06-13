@@ -1,0 +1,114 @@
+﻿<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Core</div>
+            @*<a class="nav-link" href="/Admin/Home/Index">*@
+            <a class="nav-link" href="/">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Trang chủ
+            </a>
+            <div class="sb-sidenav-menu-heading">Interface</div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Người dùng
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/Admin/User/Create">Thêm người dùng</a>
+                    <a class="nav-link" href="/Admin/User/Index">Quản lý người dùng</a>
+                </nav>
+            </div>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Sản phẩm
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/Admin/Product/Create">Thêm sản phẩm</a>
+                    <a class="nav-link" href="/Admin/Product/Index">Quản lý sản phẩm</a>
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Đơn hàng
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/Admin/Order/Create">Thêm đơn hàng</a>
+                    <a class="nav-link" href="/Admin/Order/Index">Quản lý đơn hàng</a>
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuthor" aria-expanded="false" aria-controls="pagesCollapseAuthor">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Tác giả
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="pagesCollapseAuthor" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/Admin/Author/Create">Thêm tác giả</a>
+                    <a class="nav-link" href="/Admin/Author/Index">Quản lý tác giả</a>
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseProCate" aria-expanded="false" aria-controls="pagesCollapseProCate">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Loại sách
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="pagesCollapseProCate" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/Admin/ProductCategory/Create">Thêm loại sách</a>
+                    <a class="nav-link" href="/Admin/ProductCategory/Index">Quản lý loại sách</a>
+                </nav>
+            </div>
+            @*<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                Sản phẩm
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+
+            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                <a class="nav-link collapsed" href="/Admin/Product/Index" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                    Kho hàng
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="register.html">Register</a>
+                        <a class="nav-link" href="password.html">Forgot Password</a>
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" href="/Admin/Delivery/Index" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                    Giao hàng
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="401.html">401 Page</a>
+                        <a class="nav-link" href="404.html">404 Page</a>
+                        <a class="nav-link" href="500.html">500 Page</a>
+                    </nav>
+                </div>
+            </nav>
+        </div>*@
+            <div class="sb-sidenav-menu-heading">Addons</div>
+            <a class="nav-link" href="/Admin/Statistic/Index">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Thống kê
+            </a>
+            <a class="nav-link" href="/Admin/Feedback/Index">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                Góp ý
+            </a>
+        </div>
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        Start Bootstrap
+    </div>
+</nav>

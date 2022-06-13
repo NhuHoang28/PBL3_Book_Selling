@@ -1,0 +1,200 @@
+﻿@{
+    var session = (UserLogin)Session[OnlineStore.Common.CommonConstants.USER_SESSION];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
+    <meta name="author" content="http://www.365bootstrap.com">
+
+    <title>Mobile Shop | Free Bootstrap Themes by 365bootstrap.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/Assets/client/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Assets/client/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/Assets/client/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/Assets/client/fonts/font-slider.css" type="text/css">
+
+    <!-- jQuery and Modernizr-->
+    <script src="/Assets/client/js/jquery-2.1.1.js"></script>
+
+    <!-- Core JavaScript Files -->
+    <script src="/Assets/client/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!--Top-->
+    <nav id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <select class="language">
+                        <option value="English" selected>English</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                    </select>
+                    <select class="currency">
+                        <option value="USD" selected>USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="DDD">DDD</option>
+                    </select>
+                </div>
+                <div class="col-xs-6">
+
+
+                    @if (session == null)
+                    {
+                        <ul class="top-link">
+                            <li><a href="/User/Login"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+                            <li><a href="/User/Register"><span class="glyphicon glyphicon-envelope"></span> Đăng ký</a></li>
+
+                        </ul>
+                    }
+                    else
+                    {
+                <ul class="top-link">
+                    @*<li>@Html.ActionLink("Tài khoản: " + @session.UserName, "Edit", "User")</li>*@
+                    <li><a href="/User/Edit/@session.UserID">Tài khoản: @session.UserName</a></li>
+                    @if (session.Status == false)
+                    {
+                        <li><a href="/User/Order/@session.UserID">Lịch sử mua hàng</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Admin/Home">Quản lý</a></li>
+                    }
+
+                    @*<li>@Html.ActionLink("Lịch sử mua hàng", "Edit", "User")</li>*@
+                    <li>@Html.ActionLink("Thoát", "Logout", "User")</li>
+                </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Header-->
+    <header class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="logo"><img style="width:300px;height:80px;" src="/Assets/client/images/logo.png" /></div>
+            </div>
+            <div class="col-md-4">
+                @using (@Html.BeginForm("Search", "Product", FormMethod.Post))
+                {
+                    <form class="form-search">
+                        <input id="keyword" name="keyword" type="text" class="input-medium search-query">
+                        @*<a href="/Product/Search?keyword=" class="btn btn-2 pull-right">TÌm kiếm</a>*@
+                        <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+                    </form>
+                }
+            </div>
+            @{Html.RenderAction("HeaderCart", "Home"); }
+
+        </div>
+    </header>
+    <!--Navigation-->
+    <nav id="menu" class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <span id="heading" class="visible-xs">Categories</span>
+                <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/Home/Index">TRANG CHỦ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">THỂ LOẠI</a>
+                        @{Html.RenderAction("ProductCategory", "Home"); }
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">TÁC GIẢ</a>
+                        @{Html.RenderAction("Author", "Home"); }
+                    </li>
+                    <li><a href="~/Product/Index">Sản phẩm</a></li>
+
+                    <li><a href="~/Contact/Index">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <div id="page-content" class="home-page">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <div class="wrap-footer">
+                <div class="row">
+                    <div class="col-md-3 col-footer footer-1">
+                        <img style="width:300px;height:80px;background: #2A2A2A;" src="/Assets/client/images/logo.png" />
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </div>
+                    <div class="col-md-3 col-footer footer-2">
+                        <div class="heading"><h4>Customer Service</h4></div>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer footer-3">
+                        <div class="heading"><h4>My Account</h4></div>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Brands</a></li>
+                            <li><a href="#">Gift Vouchers</a></li>
+                            <li><a href="#">Specials</a></li>
+                            <li><a href="#">Site Map</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-footer footer-4">
+                        <div class="heading"><h4>Contact Us</h4></div>
+                        <ul>
+                            <li><span class="glyphicon glyphicon-home"></span>California, United States 3000009</li>
+                            <li><span class="glyphicon glyphicon-earphone"></span>+91 8866888111</li>
+                            <li><span class="glyphicon glyphicon-envelope"></span>infor@yoursite.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        Your Store © 20xx - <a href="http://www.365bootstrap.com" rel="nofollow" target="_blank">Ecommerce Themes</a> Designed by <a href="http://www.365bootstrap.com" rel="nofollow" target="_blank">365BOOTSTRAP</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
+                            <ul>
+                                <li><img src="/Assets/client/images/visa-curved-32px.png" /></li>
+                                <li><img src="/Assets/client/images/paypal-curved-32px.png" /></li>
+                                <li><img src="/Assets/client/images/discover-curved-32px.png" /></li>
+                                <li><img src="/Assets/client/images/maestro-curved-32px.png" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("jsFooter", required: false)
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+</body>
+</html>

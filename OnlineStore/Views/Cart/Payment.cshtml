@@ -1,0 +1,62 @@
+﻿@model List<OnlineStore.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/Cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="product well">
+                <div class="col-md-3">
+                    <div class="image">
+                        <img src="@item.Product.HinhAnh" alt="@item.Product.TenSach" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="caption">
+                        <div class="name"><h3><a href="/Product/Detail/@item.Product.MaSach">@item.Product.TenSach</a></h3></div>
+                        <div class="info">
+                            <ul>
+                                <li>Mã sách: @item.Product.MaSach</li>
+                                <li>Mã loại sách: @item.Product.MaLoaiSach</li>
+                            </ul>
+                        </div>
+                        <div class="price">Đơn giá: @item.Product.DonGia.GetValueOrDefault(0)<span>$98</span></div>
+                        <label>Số lượng: </label><input class="form-inline quantity" type="text" id="quantity" value="@item.Quantity">
+                        <button onclick="getcube()"> Update </button>
+                        <div class="price">Thành tiền: @(item.Quantity*@item.Product.DonGia)</div>
+                        <hr>
+                        <a href="#" data-id="@item.Product.MaSach" class="btn-delete">Xóa</a>
+                        @*<a href="/Cart/DeleteItem/@item.Product.MaSach.Trim()?productId=@item.Product.MaSach.Trim()" class="btn btn-default pull-right">REMOVE</a>
+                        <a " href="/Cart/UpdateItem/@item.Product.MaSach.Trim()?productId=@item.Product.MaSach.Trim()&quantity=1" class="btn btn-2 ">Update</a>*@
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    }
+<div class="section group">
+    @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+    {
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Ghi chú</label>
+            <input name="note" class="form-control" />
+        </div>
+        <button type="submit" class="btn">Gửi đơn hàng</button>
+    </div>
+        
+    }
+</div>
+</div>
+

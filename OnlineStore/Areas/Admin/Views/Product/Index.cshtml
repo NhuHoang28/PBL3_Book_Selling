@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<Model.EF.SanPham>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
+}
+
+@section header{
+    Danh sách sản phẩm
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Mã sách</th>
+                            <th>Mã tác giả</th>
+                            <th>Mã Loại sách</th>
+                            <th>Tên sách</th>
+                            <th>Nội dung</th>
+                            <th>Hình ảnh</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.MaSach">
+                                <th>
+                                    @item.MaSach
+                                    <a href="/Admin/Product/Edit/@item.MaSach">Sửa</a>
+                                    |
+                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaSach }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xóa bản ghi này?",
+                                   OnComplete = "$('#row_" + @item.MaSach + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
+                                </th>
+                                <th>@item.MaTacGia</th>
+                                <th>@item.MaLoaiSach</th>
+                                <th>@item.TenSach</th>
+                                <th>@item.NoiDung</th>
+                                <th>@item.HinhAnh</th>
+                                <th>@item.DonGia</th>
+                                <th>@item.SoLuong</th>
+                                <th>@item.TrangThai</th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+    </div>
+</div>
